@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        #a{
+            width: 30%;
+            border-radius: 10px;
+            height: 40px;
+            background-color: bisque;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+         
+        }
+        #m{
+            width: 70%;
+            max-width: 400px;
+            background-color: bisque;
+            border-radius: 8px;
+        }
+
+        #d{
+            display: flex;
+flex-direction: column;
+        }
+        #i{
+            padding: 10px;
+            text-align: center;
+            background-color: darkgray;
+            margin-bottom: 20px;
+            color: bisque;
+            font-size: larger;
+            font-weight: 800;
+        }
+        #l{
+            color: beige;
+            font-weight: 700;
+            font-size: large;
+        }
+    </style>
+</head>
+<body style="background-color: rgb(40,60,70);">
+    <div id="d">
+        <div id="i">SEND A MESSAGE</div>
+    <form action="http://localhost:3000/new" method="post">
+        <label for="a" id="l">USER:</label>
+        <input type="text" name="user" id="a">
+        <label id="l" for="m">MESSAGE:</label>
+        <textarea name="messa" id="m" cols="20" rows="10"></textarea>
+        
+        <input style="padding: 5px; border-radius: 4px;" type="submit" value="Send">
+    </form>
+</div>
+</body>
+</html>
