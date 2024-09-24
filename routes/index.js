@@ -74,7 +74,7 @@ return posts3
 }
 router.get('/', async (req, res, next)=>{
   const messages = await getPosts()
-  console.log(messages)
+  //console.log(messages)
 
   if(req.isAuthenticated()){
     if(req.user.member){
