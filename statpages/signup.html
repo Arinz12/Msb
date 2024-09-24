@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Playwrite+AU+TAS:wght@100..400&family=Poly:ital@0;1&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="stylesheets/css.css">
+
+    <link rel="stylesheet" href="stylesheets/output.css">
+
+</head>
+<body>
+    <div style="background-color: blueviolet;height: 100vh;" class="poly-regular">
+        <h1 class="text-center  pb-7 text-5xl relative top-5  font-bold text-yellow-50">Sign up</h1>
+        <div class="text-center font-semibold mt-2">Sign up to start messaging</div>
+            <form action='http://localhost:3000/signup' method="post" style="background-color: black;" class=" rounded-xl  md:w-2/5 flex flex-col w-11/12 mx-auto gap-7 mt-5 sm:w-3/5  items-center p-4 pt-6 pb-6">
+                <div class="w-11/12"><label for="fn" class="text-2xl text-yellow-50 font-semibold">Firstname</label><br>
+                <input name="fname" style="background-color: rgba(207, 185, 185, 0.253); border: 2px solid blueviolet;" class=" font-semibold w-full h-11 mt-2 text-black  text-xl rounded-2xl p-2" type="text" id="fn" placeholder="firstname"></div>
+
+
+                <div class="w-11/12"><label for="fn2" class="text-2xl text-yellow-50 font-semibold">Lastname</label><br>
+                    <input name="lname" style="background-color: rgba(207, 185, 185, 0.253); border: 2px solid blueviolet;" class=" font-semibold w-full h-11 mt-2 text-black  text-xl rounded-2xl p-2" type="text" id="fn2" placeholder="lastname"></div>
+
+
+                <div class="w-11/12"><label for="fn2" class="text-2xl  text-yellow-50 font-semibold">password</label><br>
+                <input name="password" style="background-color: rgba(207, 185, 185, 0.253); border: 2px solid blueviolet;" class="font-semibold w-full h-11 mt-2 text-black text-xl rounded-2xl p-2" type="password" id="fn2" placeholder="******"></div>
+
+
+                <div class="w-11/12"><label for="fn3" class="text-2xl  text-yellow-50 font-semibold">Email</label><br>
+                <input name="email" style="background-color: rgba(207, 185, 185, 0.253); border: 2px solid blueviolet;" class="font-semibold w-full h-11 mt-2 text-black text-xl rounded-2xl p-2" type="email" id="fn3" placeholder=""></div>
+
+                
+                <button style="background-color: blueviolet;" type="submit" class="text-2xl rounded-3xl pl-5 pr-5 font-semibold text-white p-3 ">continue  <svg class="inline-block" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ffffff"><path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"/></svg></button>
+                <p class="text-1xl font-medium text-white"><a href="http://localhost:3000/login" class="text-blue-700">Log in</a> if you already have an account</p>
+            </form>
+        
+    </div>
+</body>
+</html>

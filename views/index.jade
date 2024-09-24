@@ -1,12 +1,43 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  each aa in message 
-   div#mm
-    span #{aa.user}
-    span #{aa.text} 
-    span #{aa.added}
-  button
-   a(href="https://anxious-gayleen-zona-60093e65.koyeb.app/new") NEW MESSAGE
+  div.flex.justify-between.items-center(class="sticky top-3")
+   h1.font-bold.text-5xl.mb-5.left-0= title
+   button.p-2.bg-red-500.rounded-xl
+    if !loggedin
+     a.text-2xl(href="http://localhost:3000/login") Log in
+    else 
+     a.text-2xl(href="http://localhost:3000/logout") Log out
+      
+  //- p Welcome to #{title}
+  div#con(style="z-index:-1")
+   each aa in message 
+    -var time=aa.time.slice(0,18)
+    div
+     div.text-center=time
+     div#mm.mx-auto.mt-3.mb-5(class="block ",style="max-width:60%; width:50%")  
+      if member
+       p.text-xs.font-semibold.mb-2(style="color:green")=aa.user
+      else 
+       p.text-xs.font-semibold.mb-2(style="color:green")="Anonymous"
+      span.text-white.text-center.font-semibold #{aa.content} 
+      span.text-red-600.text-right.text-xs.font-bold #{aa.time.slice(18)}
+  buttom#scrollButton.bg-black.rounded-md.p-2.text-white.fixed.bottom-2(onclick="scro()") scroll 
+   if loggedin   
+    form(action="http://localhost:3000/new/", method="post",class="w-full", style="").fixed.bottom-1
+     .mx-auto.p-4.pt-2.pb-2(class="w-3/5 flex flex-row gap-2 rounded-xl",style="background-color:blue") 
+      div 
+       a(href="http://localhost:3000/become") 
+        button.p-2.rounded-md.font-semibold.bg-black.text-white(type="button") Become a member     
+      input(type="text", name="message", class="w-full mx-auto rounded-xl h-11 dark:bg-gray-200 bg-white p-2 font-semibold")
+      button.p-3.bg-blue-600.rounded-lg(type="submit") send
+
+  script.
+    function scro() {
+        window.scrollTo({
+           top: document.documentElement.scrollHeight,
+           behavior: 'smooth' // Smooth scroll effect   
+           });
+          
+    }
+  

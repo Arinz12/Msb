@@ -8,10 +8,11 @@ a {
 }
 #mm{
   display: flex;
-  gap: 30px;
-  background-color: blue;
+  flex-direction: column;
+  gap: 5px;
+  background-color: black;
   border-radius: 10px;
 padding: 10px;
-margin-bottom: 10px;
+margin-bottom: 25px;
 width: fit-content;
 }
