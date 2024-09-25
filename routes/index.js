@@ -98,7 +98,7 @@ router.post('/new',logcheck, async (req, res, next)=>{
   const id=req.user._id;
   const user=req.user.email;
   const text=req.body.message;
-  const added=localTime.toLocaleString(DateTime.DATETIME_MED_WITH_WEEKDAY);
+  const added=DateTime.local().toLocaleString(DateTime.DATETIME_MED_WITH_WEEKDAY);
   if(!text){res.redirect("/")}
   else{
   //messages.push({text:text,user:user,added:added})
