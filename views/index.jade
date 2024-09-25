@@ -1,43 +1,43 @@
 extends layout
 
 block content
-  div.flex.justify-between.items-center(class="sticky top-3")
-   h1.font-bold.text-5xl.mb-5.left-0= title
-   button.p-2.bg-red-500.rounded-xl
-    if !loggedin
-     a.text-2xl(href="https://msb-yrct.onrender.com/login") Log in
-    else 
-     a.text-2xl(href="https://msb-yrct.onrender.com/logout") Log out
-      
-  //- p Welcome to #{title}
-  div#con(style="z-index:-1")
-   each aa in message 
-    -var time=aa.time.slice(0,18)
-    div
-     div.text-center=time
-     div#mm.mx-auto.mt-3.mb-5(class="block ",style="max-width:60%; width:50%")  
-      if member
-       p.text-xs.font-semibold.mb-2(style="color:green")=aa.user
+  div.flex.flex-col(class="md:flex-row justify-between items-center sticky top-3")
+    h1.font-bold.text-3xl(class="md:text-5xl mb-5 left-0 text-gray-800")= title
+    button.p-2.bg-teal-500.rounded-xl
+      if !loggedin
+        a.text-lg(class="md:text-2xl text-white", href="https://msb-yrct.onrender.com/login") Log in
       else 
-       p.text-xs.font-semibold.mb-2(style="color:green")="Anonymous"
-      span.text-white.text-center.font-semibold #{aa.content} 
-      span.text-red-600.text-right.text-xs.font-bold #{aa.time.slice(18)}
-  buttom#scrollButton.bg-black.rounded-md.p-2.text-white.fixed.bottom-2(onclick="scro()") scroll 
-   if loggedin   
-    form(action="https://msb-yrct.onrender.com/new/", method="post",class="w-full", style="").fixed.bottom-1
-     .mx-auto.p-4.pt-2.pb-2(class="w-3/5 flex flex-row gap-2 rounded-xl",style="background-color:blue") 
-      div 
-       a(href="https://msb-yrct.onrender.com/become") 
-        button.p-2.rounded-md.font-semibold.bg-black.text-white(type="button") Become a member     
-      input(type="text", name="message", class="w-full mx-auto rounded-xl h-11 dark:bg-gray-200 bg-white p-2 font-semibold")
-      button.p-3.bg-blue-600.rounded-lg(type="submit") send
+        a.text-lg(class="md:text-2xl text-white", href="https://msb-yrct.onrender.com/logout") Log out
 
+  div#con(style="z-index:-1")
+    each aa in message 
+      - var time = aa.time.slice(0, 18)
+      div
+        div.text-center=time
+        div#mm.mx-auto.mt-3.mb-5(class="inline-block", style="max-width:90%;")  
+          if member
+            p.text-xs.font-semibold.mb-2(style="color:green")= aa.user
+          else 
+            p.text-xs.font-semibold.mb-2(style="color:green")="Anonymous"
+          span.text-gray-900.text-center.font-semibold #{aa.content} 
+          span.text-red-500.text-right.text-xs.font-bold #{aa.time.slice(18)}
+
+      //- button#scrollButton.bg-black.rounded-md.p-2.text-white.fixed.bottom-2(onclick="scro()") Scroll 
+    if loggedin   
+      form.mx-auto.p-4(action="https://msb-yrct.onrender.com/new/", method="post", class="fixed bottom-0 w-full max-w-4xl flex flex-row md:flex-row gap-2 rounded-xl", style="background-color:#2c3e50; left: 50%; transform: translateX(-50%);") 
+        div#u.flex.items-center.w-full
+          textarea(type="text",resize ="none", overflow="hidden",placeholder="Message",name="message", class="flex-grow mx-auto rounded-xl h-11 bg-gray-100 p-2 font-semibold", style="border: 1px solid #ccc;",id="messageInput")
+          button.p-3.bg-teal-600.rounded-lg(type="submit")
+            svg(xmlns="http://www.w3.org/2000/svg", height="24px", viewBox="0 -960 960 960", width="24px", fill="#ffffff")
+              path(d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z")
+
+         //- a(href="https://msb-yrct.onrender.com/become") 
+                   //-   button.p-2.rounded-md.font-semibold.bg-black.text-white(type="button") Become a member 
   script.
     function scro() {
-        window.scrollTo({
-           top: document.documentElement.scrollHeight,
-           behavior: 'smooth' // Smooth scroll effect   
-           });
-          
+      window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: 'smooth' // Smooth scroll effect   
+      });
     }
-  
+    
